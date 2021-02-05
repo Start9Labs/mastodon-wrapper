@@ -1,1 +1,25 @@
-{}
+username:
+  type: string
+  nullable: false
+  name: "Username"
+  default: "me"
+  pattern: "^[a-zA-Z0-9_]+$"
+  patternDescription: "Must be alphanumeric (can contain underscore)."
+email:
+  type: string
+  nullable: false
+  name: "Email"
+  default: "me@example.com"
+  pattern: '^[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+$'
+  patternDescription: "Must be a valid email address."
+password:
+  type: string
+  nullable: false
+  name: "Password"
+  default:
+    charset: "a-z,2-7"
+    len: 20
+  pattern: '^[^\n"]*$'
+  patternDescription: "Must not contain newline or quote characters."
+  copyable: true
+  masked: true

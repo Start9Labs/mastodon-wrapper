@@ -1,0 +1,3 @@
+[submodule "mastodon"]
+	path = mastodon
+	url = git@github.com:Start9Labs/mastodon.git
