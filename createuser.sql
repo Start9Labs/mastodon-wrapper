@@ -1,0 +1,7 @@
+DO $$
+BEGIN
+  CREATE ROLE "mastodon";
+  EXCEPTION WHEN DUPLICATE_OBJECT THEN
+  RAISE NOTICE 'user already exists';
+END
+$$;

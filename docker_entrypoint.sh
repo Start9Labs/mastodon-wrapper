@@ -35,6 +35,7 @@ REDIS_URL="redis://localhost:6379"
 http_proxy="http://localhost:8118"
 ALLOW_ACCESS_TO_HIDDEN_SERVICE=true
 SINGLE_USER_MODE=true
+SMTP_DISABLE=true
 cd /mastodon
 test -f /root/persistence/secret_key_base.txt || bundle exec rake secret > /root/persistence/secret_key_base.txt
 SECRET_KEY_BASE=$(cat /root/persistence/secret_key_base.txt)
