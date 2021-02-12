@@ -69,11 +69,6 @@ exec bundle exec puma -C config/puma.rb &
 puma_child=$!
 
 echo "All services started..."
-echo "Managing accounts..."
-
-USERNAME=$(yq e '.username' /root/persistence/start9/config.yaml)
-EMAIL=$(yq e '.email' /root/persistence/start9/config.yaml)
-PASSWORD=$(yq e '.password' /root/persistence/start9/config.yaml) ./bin/tootctl accounts create $USERNAME --email "$EMAIL" --confirmed --role admin
 
 trap _term SIGTERM
 
