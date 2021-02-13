@@ -1,3 +1,8 @@
+single-user-mode:
+  type: boolean
+  name: Single User Mode
+  description: Disable signups, and redirect visitors to the first active account.
+  default: true 
 advanced:
   type: object
   name: Advanced
