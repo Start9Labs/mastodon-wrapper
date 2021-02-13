@@ -35,7 +35,33 @@ REDIS_URL="redis://localhost:6379"
 http_proxy="http://localhost:8118"
 ALLOW_ACCESS_TO_HIDDEN_SERVICE=true
 SINGLE_USER_MODE=true
-SMTP_DISABLE=true
+if [ "$(yq e ".advanced.smtp.enabled" /root/persistence/start9/config.yaml)" = "true" ]; then
+  SMTP_SERVER="$(yq e ".advanced.smtp.address" /root/persistence/start9/config.yaml)"
+  SMTP_PORT="$(yq e ".advanced.smtp.port" /root/persistence/start9/config.yaml)"
+  SMTP_FROM_ADDRESS="$(yq e ".advanced.smtp.from-address" /root/persistence/start9/config.yaml)"
+  if yq e -e ".advanced.smtp.domain" /root/persistence/start9/config.yaml; then
+    SMTP_DOMAIN="$(yq e ".advanced.smtp.domain" /root/persistence/start9/config.yaml)"
+  fi
+  if [ "$(yq e ".advanced.smtp.authentication.type" /root/persistence/start9/config.yaml)" != "none" ]; then
+    SMTP_AUTH_METHOD="$(yq e ".advanced.smtp.authentication.type" /root/persistence/start9/config.yaml)"
+  fi
+  if yq e -e ".advanced.smtp.authentication.username" /root/persistence/start9/config.yaml; then
+    SMTP_LOGIN="$(yq e ".advanced.smtp.authentication.username" /root/persistence/start9/config.yaml)"
+  fi
+  if yq e -e ".advanced.smtp.authentication.password" /root/persistence/start9/config.yaml; then
+    SMTP_PASSWORD="$(yq e ".advanced.smtp.authentication.password" /root/persistence/start9/config.yaml)"
+  fi
+  if yq e -e ".advanced.smtp.enable-starttls-auto" /root/persistence/start9/config.yaml; then
+    SMTP_ENABLE_STARTTLS_AUTO=true
+  fi
+  if [ "$(yq e ".advanced.smtp.ssl.enable" /root/persistence/start9/config.yaml)" = "true" ]; then
+    SMTP_SSL=true
+    SMTP_TLS=true
+    SMTP_OPENSSL_VERIFY_MODE="$(yq e ".advanced.smtp.ssl.openssl-verify-mode" /root/persistence/start9/config.yaml)"
+  fi
+else
+  SMTP_DISABLE=true
+fi
 cd /mastodon
 test -f /root/persistence/secret_key_base.txt || bundle exec rake secret > /root/persistence/secret_key_base.txt
 SECRET_KEY_BASE=$(cat /root/persistence/secret_key_base.txt)

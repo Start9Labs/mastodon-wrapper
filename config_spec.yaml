@@ -29,6 +29,11 @@ advanced:
             integral: true
             range: '[0,65535]'
             nullable: false
+          from-address:
+            type: string
+            name: From Address
+            description: Email address to use as the "from" field of emails sent by mastodon
+            nullable: false
           domain:
             type: string
             name: Domain
@@ -45,7 +50,7 @@ advanced:
                 none: None
                 plain: Plain
                 login: Login
-                cram_md5: CRAM MD5
+                cram-md5: CRAM MD5
             default: none
             variants:
               none: {}
@@ -112,6 +117,6 @@ advanced:
                   valueNames:
                     none: None
                     peer: Peer
-                  default: peer
+                  default: none
               'false': {}
         'false': {}
