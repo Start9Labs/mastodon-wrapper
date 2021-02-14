@@ -20,12 +20,8 @@ Mastodon is capable of sending email notifications for invitations, or to alert 
 
 ## Following
 
-To follow someone on the federated network, simply visit their profile on any Mastodon instance and click the "Follow" button. You may be asked to sign in to your own Mastodon instance. If so, simply enter your Mastodon *user* address (ex `Alice@toraddress.onion`) and password.
+To follow someone on the federated network, simply visit their profile on any Mastodon instance and click the "Follow" button. Make sure you are logged in to your mastodon before doing so or you may get an error.
 
 ## Forgot Password
 
-If you forget your Mastodon user password, there are two ways to reset it:
-
-1. If you have SMTP configured, you can use the standard "Forgot Password" flow through your Mastodon web site.
-
-2. In your Embassy Mastodon service, click Actions --> Reset Password.
+If you forget your Mastodon user password, you will only be able to go through the "forgot password" flow if you have email configured.
