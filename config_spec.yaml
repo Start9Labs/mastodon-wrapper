@@ -1,7 +1,8 @@
 single-user-mode:
   type: boolean
   name: Single User Mode
-  description: Disable signups, and redirect visitors to the first active account.
+  description: If set to true, the front page of your Mastodon instance will always redirect to the first profile in the database, and additional registrations will be disabled. If set to false, the front page of your Mastodon instance will display a login/register page.
+  changeWarning: Disabling Single User Mode does not automatically enable new registrations on your Mastodon instance. You can still control who can and cannot register on your instance inside the settings of your Mastodon admin portal. If you decide to disable Single User Mode and enable registrations, it is highly recommended that you also require approval of new registrants and limit the total number of users on your instance for performance reasons.
   default: true 
 advanced:
   type: object
