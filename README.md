@@ -1,6 +1,6 @@
 # Wrapper for mastodon
 
-`mastodon` is an open source decentralized social network that relies on a decentralized network of federated servers.
+`mastodon` is an open source social network that relies on a decentralized network of federated servers.
 
 ## Dependencies
 
