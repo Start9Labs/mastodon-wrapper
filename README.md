@@ -1,6 +1,6 @@
 # Wrapper for mastodon
 
-`mastodon` is a simple, minimal project to serve as a template for creating an app for the Embassy.
+`mastodon` is an open source decentralized social network that relies on a decentralized network of federated servers.
 
 ## Dependencies
 
