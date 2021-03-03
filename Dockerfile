@@ -89,6 +89,8 @@ RUN mkdir /run/nginx \
 ADD ./nginx.conf /etc/nginx/conf.d/default.conf
 ADD ./docker_entrypoint.sh /usr/local/bin/docker_entrypoint.sh
 RUN chmod a+x /usr/local/bin/docker_entrypoint.sh
+ADD ./reset_admin_password.sh /usr/local/bin/reset_admin_password.sh
+RUN chmod a+x /usr/local/bin/reset_admin_password.sh
 
 EXPOSE 80 3000 4000
 

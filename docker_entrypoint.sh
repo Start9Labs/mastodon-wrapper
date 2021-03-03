@@ -14,7 +14,7 @@ _term() {
 }
 
 HOST_IP=$(ip -4 route list match 0/0 | awk '{print $3}')
-echo "$HOST_IP   tor" | tee -a /etc/hosts
+echo "$HOST_IP   tor" >> /etc/hosts
 
 mkdir -p /root/persistence/system
 test -d /mastodon/public/system || ln -s /root/persistence/system /mastodon/public/system
@@ -71,6 +71,10 @@ test -f /root/persistence/otp_secret.txt || bundle exec rake secret > /root/pers
 OTP_SECRET=$(cat /root/persistence/otp_secret.txt)
 test -f /root/persistence/vapid.env || bundle exec rake mastodon:webpush:generate_vapid_key > /root/persistence/vapid.env
 source /root/persistence/vapid.env
+
+if [ "$#" -ne 0 ]; then
+  exec $@
+fi
 
 chmod 777 /root
 chmod 777 /root/persistence
