@@ -25,7 +25,7 @@ fi
 ln -s /root/persistence/log /mastodon/log
 
 LOCAL_DOMAIN="$TOR_ADDRESS"
-WEB_DOMAIN="$TOR_ADDRESS"
+ALTERNATE_DOMAINS="$TOR_ADDRESS,$(echo "$TOR_ADDRESS" | sed -r 's/(.+)\.onion/\1.local/g')"
 STREAMING_API_BASE_URL="ws://$TOR_ADDRESS"
 DB_HOST=localhost
 DB_USER=postgres
