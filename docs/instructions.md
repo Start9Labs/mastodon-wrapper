@@ -27,3 +27,7 @@ To follow someone on the federated network, simply visit their profile on any Ma
 If you forget your Mastodon user password, there are two ways to reset it:
   1. If you have SMTP configured, you can use the standard "Forgot Password" flow through your Mastodon web site.
   2. In your Embassy Mastodon service, click Actions --> Reset Password.
+
+## Restoring from Backup
+
+**IMPORTANT** There is a known bug when restoring from backup that creates an incorrect .onion address.  To fix this, after a restore, you can downgrade Mastodon and then re-upgrade, and the issue will resolve itself.  A fix is in development for this.
