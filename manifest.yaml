@@ -1,6 +1,6 @@
 compat: v0
 id: mastodon
-version: 3.3.0.1
+version: 3.4.1
 title: Mastodon
 description:
   short: "A free, open-source social network server."
@@ -24,8 +24,8 @@ install-alert: |
   Make sure to sign up for a user before giving out your link. The first user to sign up is set as the admin user.
 start-alert: |
   It may take several minutes after startup for this service to be ready for use.
-os-version-required: ">=0.2.9"
-os-version-recommended: ">=0.2.9"
+os-version-required: ">=0.2.14"
+os-version-recommended: ">=0.2.14"
 assets: []
 hidden-service-version: v3
 dependencies: {}
